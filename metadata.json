@@ -1,0 +1,6 @@
+{
+  "name": "Djurdagbok",
+  "description": "Mobilanpassad hälsojournal och dagbok för husdjur med offline-first IndexedDB-lagring, tidslinje, viktdiagram och ZIP-backup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
