@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🐾 Djurdagbok
 
-# Run and deploy your AI Studio app
+## Hisspitch
+Djurdagbok är en mobilanpassad hälsojournal och digital dagbok för husdjursägare som vill ha full koll på sina djurs mående, händelser och medicinering. Med ett offline-first-fokus sparas all data lokalt och säkert direkt i webbläsaren – komplett med interaktiv tidslinje, viktdiagram och smidig ZIP-backup för maximal trygghet.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/941922da-9392-47a9-9620-ec63efe64135
+## Vad som behövs för att köra
+- [Node.js](https://nodejs.org/) (version 18 eller senare)
+- [npm](https://www.npmjs.com/) (ingår med Node.js)
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## Instruktioner
 
+### 1. Installera beroenden
+Kör följande kommando i terminalen:
+```bash
+npm install
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 2. Starta utvecklingsservern
+Starta servern med:
+```bash
+npm run dev
+```
+
+---
+
+## Öppna appen
+
+### 💻 I webbläsaren (på datorn)
+Klicka direkt på länken:
+* [http://localhost:3000](http://localhost:3000)
+
+### 📱 I mobilen (via Wi-Fi)
+1. Kontrollera att telefonen och datorn är anslutna till **samma Wi-Fi-nätverk**.
+2. Klicka eller navigera till din nätverkslänk i mobilens webbläsare:
+   * [http://192.168.213.25:3000](http://192.168.213.25:3000)
+
+*(Tips: Om du är ansluten till ett annat nätverk ser du den aktuella adressen bredvid `Network:` i terminalen efter att du kört `npm run dev`. Välj gärna "Lägg till på hemskärmen" i mobilens webbläsare för fullskärmskänsla).*

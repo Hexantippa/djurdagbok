@@ -1,0 +1,230 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens för Djurdagbok — baserad på vald färgpalett med mörk antracit som botten */
+:root {
+  color-scheme: light;
+  --palette-linen: #f6ece5;
+  --palette-sage: #d1dfc7;
+  --palette-amber: #fbae44;
+  --palette-charcoal: #2c2e2d;
+  --palette-stone: #a5a6a8;
+  --palette-umber: #40341c;
+
+  /* Ljust tema */
+  --bg-canvas: #f6ece5;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #efe4dc;
+  --bg-surface-hover: #e7dad0;
+  --bg-input: #ffffff;
+  --bg-scrim: rgba(44, 46, 45, 0.56);
+
+  --text-primary: #2c2e2d;
+  --text-secondary: #4c4f4d;
+  --text-muted: #696b6d;
+
+  --border-hairline: rgba(44, 46, 45, 0.13);
+  --border-strong: rgba(44, 46, 45, 0.28);
+
+  --accent-primary: #c97708;
+  --accent-primary-fill: #fbae44;
+  --accent-primary-fill-hover: #e89624;
+  --accent-primary-fg: #1f2120;
+  --accent-secondary: #d1dfc7;
+  --accent-secondary-fg: #232724;
+
+  --status-success: #2f7a47;
+  --status-warning: #b36606;
+  --status-danger: #c43c3c;
+
+  --bg-profile-card: #d3e0c9;
+  --bg-profile-card-hover: rgba(31, 33, 32, 0.06);
+  --bg-profile-card-control: rgba(31, 33, 32, 0.1);
+  --bg-profile-card-control-hover: rgba(31, 33, 32, 0.18);
+  --text-profile-card: #1f2120;
+  --text-profile-card-muted: #384035;
+  --border-profile-card: rgba(31, 33, 32, 0.24);
+
+  /* Radier & avstånd */
+  --radius-input: 8px;
+  --radius-button: 9999px;
+  --radius-card: 16px;
+  --radius-sheet: 24px;
+  --touch-target: 44px;
+
+  /* Typografi */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.dark {
+  color-scheme: dark;
+  /* Mörkt tema (förvalt): mörk antracit som botten */
+  --bg-canvas: #222423;
+  --bg-surface: #2c2e2d;
+  --bg-surface-elevated: #363937;
+  --bg-surface-hover: #404341;
+  --bg-input: #1d1f1e;
+  --bg-scrim: rgba(12, 13, 12, 0.72);
+
+  --text-primary: #f6ece5;
+  --text-secondary: #d3ccc6;
+  --text-muted: #a5a6a8;
+
+  --border-hairline: rgba(246, 236, 229, 0.11);
+  --border-strong: rgba(246, 236, 229, 0.24);
+
+  --accent-primary: #fbae44;
+  --accent-primary-fill: #fbae44;
+  --accent-primary-fill-hover: #ffc266;
+  --accent-primary-fg: #1f2120;
+  --accent-secondary: #d1dfc7;
+  --accent-secondary-fg: #1f2120;
+
+  --status-success: #9bc487;
+  --status-warning: #fbae44;
+  --status-danger: #f07b78;
+
+  --bg-profile-card: #40341c;
+  --bg-profile-card-hover: rgba(246, 236, 229, 0.08);
+  --bg-profile-card-control: rgba(246, 236, 229, 0.14);
+  --bg-profile-card-control-hover: rgba(246, 236, 229, 0.24);
+  --text-profile-card: #f6ece5;
+  --text-profile-card-muted: #e3d7cc;
+  --border-profile-card: rgba(246, 236, 229, 0.2);
+}
+
+[data-contrast="high"]:not(.dark) {
+  --bg-canvas: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f2f2f2;
+  --bg-input: #ffffff;
+  --text-primary: #0f1010;
+  --text-secondary: #1e2020;
+  --text-muted: #3d4040;
+  --border-hairline: rgba(15, 16, 16, 0.35);
+  --border-strong: #0f1010;
+  --accent-primary: #9e5800;
+  --accent-primary-fill: #fbae44;
+  --accent-primary-fill-hover: #e5931c;
+  --bg-profile-card: #d3e0c9;
+  --text-profile-card: #121412;
+  --text-profile-card-muted: #2c3329;
+  --border-profile-card: #121412;
+}
+
+.dark[data-contrast="high"] {
+  --bg-canvas: #121312;
+  --bg-surface: #1b1d1c;
+  --bg-surface-elevated: #282b29;
+  --bg-input: #101110;
+  --text-primary: #ffffff;
+  --text-secondary: #f2ece7;
+  --text-muted: #d1d3d4;
+  --border-hairline: rgba(255, 255, 255, 0.28);
+  --border-strong: #ffffff;
+  --accent-primary: #ffc166;
+  --accent-primary-fill-hover: #ffd188;
+  --bg-profile-card: #332915;
+  --text-profile-card: #ffffff;
+  --text-profile-card-muted: #f6ece5;
+  --border-profile-card: #ffffff;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 18.5px;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  -webkit-tap-highlight-color: transparent;
+}
+
+html[data-large-text="true"] {
+  font-size: 21.5px;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Semi-flat komponenter: 8px formulärfält & pillformade knappar */
+.field-input {
+  border-radius: var(--radius-input);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  min-height: var(--touch-target);
+  transition: border-color 150ms ease, outline-color 150ms ease;
+}
+
+.field-input:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 1px;
+  border-color: var(--accent-primary);
+}
+
+.btn-pill {
+  border-radius: var(--radius-button);
+  min-height: var(--touch-target);
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms ease, opacity 150ms ease, box-shadow 150ms ease;
+}
+
+[class*="bg-[var(--accent-primary-fill)]"]:hover:not(:disabled) {
+  background-color: var(--accent-primary-fill-hover);
+  box-shadow: 0 4px 12px rgba(251, 174, 68, 0.28);
+}
+
+.btn-pill:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-pill:focus-visible,
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+
+.surface-elevated {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
